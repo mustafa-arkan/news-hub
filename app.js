@@ -7,6 +7,14 @@ fetch(url)
 .then(res =>res.json())
 
 .then(data =>displaymenu(data.data.news_category))
+
+.catch(e=>{
+
+  console.log(e)
+})
+
+
+
 }
 const displaymenu=menus=>{
 
@@ -60,11 +68,15 @@ for(const user of cardShow){
  <div class="col-md-8">
    <div class="card-body">
    <h3>  ${user.title}</h3>
-     <p class="card-title">${user.details}</p>
+     <p class="card-title">${user.details.slice(0,400)+'...'}</p>
      
     <div class="d-flex">
-    <img src="${user.author.img}" class="img-fluid rounded-circle w-25  h-25" alt="...">
-     <p class="card-text"><small></small></p>
+    <img src="${user.author.img}" class="img-fluid rounded-circle w-25  h-15" alt="...">
+     <h6 class="card-text mt-5"><small>${user.author.name}</small></h6>
+     <i class="fa-solid fa-eye ms-5 mt-5"></i>
+     <h6 class="mt-5" >${user.total_view}</h6>
+     <button type="button" class="btn btn-primary mx-5 mt-5 h-25 w-25" >Details</button>
+
 </div>
 
     </div>
