@@ -21,10 +21,9 @@ menuDiv.classList.add('mnudiv')
 
 menuDiv.innerHTML=`
 
-<button type="button" " class="btn"  onclick="loadMenuDetails('${menu.category_id}')" >${menu.category_name}</button>
+<button type="button" " class="btn" onclick="loadMenuDetails('${menu.category_id}')" >${menu.category_name}</button>
 
 `
-
 navMenu.appendChild(menuDiv)
 
 })
@@ -42,41 +41,37 @@ fetch(url)
 .then(data =>displayDetails(data.data))
 }
 
-const displayDetails=data=>{
+const displayDetails=cardShow=>{
 
-console.log(data)
+console.log(cardShow)
 
 const card=document.getElementById('card')
 
+for(const user of cardShow){
+  console.log(user)
 
-     const cardDiv=document.createElement('div')
+  const cardDiv=document.createElement('div')
 
-   cardDiv.innerHTML=`
-    
-    
-     <div class="col-md-4">
-     <img src="${data[0].author.img}" class="img-fluid rounded-start" alt="...">
+  cardDiv.innerHTML=`
+   <div class="border border-dark d-flex m-5 ">
+    <div class="col-md-4">
+    <img src="${user.image_url}" class="img-fluid rounded-start h-100" alt="...">
+ </div>
+ <div class="col-md-8">
+   <div class="card-body">
+   <h3>  ${user.title}</h3>
+     <p class="card-title">${user.details}</p>
+     
+    <div class="d-flex">
+    <img src="${user.author.img}" class="img-fluid rounded-circle w-25  h-25" alt="...">
+     <p class="card-text"><small></small></p>
+</div>
+
+    </div>
   </div>
-  <div class="col-md-8">
-    <div class="card-body">
-      <h5 class="card-title">${data[0].author.name}</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-     </div>
-   </div>
-    
-    
-    
-    
-    
-   `
-
+    </div>
+  `
 card.appendChild(cardDiv)
-
-
-    
-
-
 
 
 
@@ -87,6 +82,9 @@ card.appendChild(cardDiv)
 
 
 
+    
+
+}
 
 //https://openapi.programming-hero.com/api/news/category/{category_id}
 
