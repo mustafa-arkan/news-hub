@@ -18,7 +18,10 @@ fetch(url)
 }
 const displaymenu=menus=>{
 
- const navMenu=document.getElementById('nav-menu')   
+ const navMenu=document.getElementById('nav-menu') 
+ 
+ 
+ 
 
 menus.forEach(menu=>{
 
@@ -55,6 +58,8 @@ console.log(cardShow)
 
 const card=document.getElementById('card')
 
+card.textContent=' '
+
 for(const user of cardShow){
   console.log(user)
 
@@ -85,7 +90,13 @@ for(const user of cardShow){
   `
 card.appendChild(cardDiv)
 
+const newsCountText=document.getElementById('news-count')
 
+newsCountText.innerText=`${cardShow.length} items found `
+
+// datas.sort((a, b) => {
+//return b.propertyName - a.propertyName;
+//});
 
 
 }
