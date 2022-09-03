@@ -8,15 +8,14 @@ fetch(url)
 
 .then(data =>displaymenu(data.data.news_category))
 
-.catch(e=>{
-
-  console.log(e,'data not found')
+.catch(e=>{ console.log(e,'data not found')
 })
 
 
 
 }
 const displaymenu=menus=>{
+  
 
  const navMenu=document.getElementById('nav-menu') 
  
@@ -24,20 +23,29 @@ const displaymenu=menus=>{
  
 
 menus.forEach(menu=>{
+  
 
 //console.log(menu)
 const menuDiv=document.createElement('div')
 
+
 menuDiv.classList.add('mnudiv')
+
 
 menuDiv.innerHTML=`
 
 <button type="button" " class="btn" onclick="loadMenuDetails('${menu.category_id}')" >${menu.category_name}</button>
 
 `
+
+
+
 navMenu.appendChild(menuDiv)
 
+
 })
+
+
 
 }
 //console.log(menus)
@@ -74,6 +82,8 @@ else{
 
 //not found end
 
+
+
 //sort
 
 //cardShow=cardShow.slice(0,5)
@@ -95,10 +105,12 @@ for(const user of cardShow){
      
     <div class="d-flex">
     <img src="${user.author.img}" class="img-fluid rounded-circle w-25  h-15" alt="...">
-     <h6 class="card-text mt-5"><small>${user.author.name}</small></h6>
+     <h6 class="card-text mt-5"><small>${user.author.name?user.author.name:'No data found'}</small></h6>
      <i class="fa-solid fa-eye ms-5 mt-5"></i>
-     <h6 class="mt-5" >${user.total_view}</h6>
-     <button type="button" class="btn btn-primary mx-5 mt-5 h-25 w-25" >Details</button>
+     <h6 class="mt-5" >${user.total_view? user.total_view:'No data found'}</h6>
+     <button type="button"  onclick="loadModal('${user._id}')"  href="#" class="btn btn-primary h-25 w-25 mx-5 mt-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Details
+</button>
 
 </div>
 
@@ -120,6 +132,9 @@ newsCountText.innerText=`${cardShow.length} items found `
 }
 
 
+//stop spin toggle
+
+
 
 
 
@@ -127,7 +142,61 @@ newsCountText.innerText=`${cardShow.length} items found `
 
 }
 
-//https://openapi.programming-hero.com/api/news/category/{category_id}
 
-//loadMenuDetails()
+
+
+const loadModal=(news_id)=>{
+
+const url=` https://openapi.programming-hero.com/api/news/${news_id}`
+
+fetch(url)
+.then(res=> res.json())
+
+.then(data=>displayModal(data.data))
+
+.catch(error=>console.log(error))
+
+
+}
+
+const displayModal=(modal)=>{
+
+console.log(modal)
+
+const modalContainer=document.getElementById('staticBackdrop')
+modalContainer.innerHTML=`
+
+
+<div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+
+
+
+
+`
+
+
+
+
+
+
+}
+
+loadModal()
+
+loadMenuDetails('01')
 loadMenu()
+displayDetails()
