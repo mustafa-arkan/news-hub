@@ -10,7 +10,7 @@ fetch(url)
 
 .catch(e=>{
 
-  console.log(e)
+  console.log(e,'data not found')
 })
 
 
@@ -50,6 +50,9 @@ const loadMenuDetails=(category_id)=>{
 fetch(url)
 .then(res=>res.json())
 .then(data =>displayDetails(data.data))
+
+
+
 }
 
 const displayDetails=cardShow=>{
@@ -59,6 +62,21 @@ console.log(cardShow)
 const card=document.getElementById('card')
 
 card.textContent=' '
+//not found
+const notFound=document.getElementById('not-found')
+
+if(cardShow.length===0){
+  notFound.classList.remove('d-none')
+}
+else{
+  notFound.classList.add('d-none')
+}
+
+//not found end
+
+//sort
+
+//cardShow=cardShow.slice(0,5)
 
 for(const user of cardShow){
   console.log(user)
