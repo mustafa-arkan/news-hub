@@ -18,6 +18,8 @@ const displaymenu=menus=>{
   
 
  const navMenu=document.getElementById('nav-menu') 
+
+// toggleSpinner(true)
  
  
  
@@ -25,8 +27,16 @@ const displaymenu=menus=>{
 menus.forEach(menu=>{
   
 
+
+
+
+
+
+
+
 //console.log(menu)
 const menuDiv=document.createElement('div')
+
 
 
 menuDiv.classList.add('mnudiv')
@@ -128,6 +138,8 @@ card.appendChild(cardDiv)
 
 const newsCountText=document.getElementById('news-count')
 
+
+
 newsCountText.innerText=`${cardShow.length} items found `
 
 // datas.sort((a, b) => {
@@ -139,7 +151,7 @@ newsCountText.innerText=`${cardShow.length} items found `
 
 
 //stop spin toggle
-
+//toggleSpinner(false)
 
 
 
