@@ -8,7 +8,7 @@ fetch(url)
 
 .then(data =>displaymenu(data.data.news_category))
 
-.catch(e=>{ console.log(e,'data not found')
+.catch(e=>{ console.log(e)
 })
 
 
@@ -33,6 +33,11 @@ menuDiv.classList.add('mnudiv')
 
 
 menuDiv.innerHTML=`
+
+
+
+
+    
 
 <button type="button" " class="btn" onclick="loadMenuDetails('${menu.category_id}')" >${menu.category_name}</button>
 
@@ -94,7 +99,7 @@ for(const user of cardShow){
   const cardDiv=document.createElement('div')
 
   cardDiv.innerHTML=`
-   <div class="border border-dark d-flex m-5 ">
+   <div class="border border-dark d-flex m-5 col-sm-12 col-xl-12 ">
     <div class="col-md-4">
     
     <img src="${user.image_url}" class="img-fluid rounded-start h-100" alt="...">
@@ -150,7 +155,7 @@ const loadModal=(news_id)=>{
 
 const url=` https://openapi.programming-hero.com/api/news/${news_id}`
 
-//const url=` https://openapi.programming-hero.com/api/news/category/${category_id}`
+
 
 fetch(url)
 .then(res=> res.json())
