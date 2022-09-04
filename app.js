@@ -96,6 +96,7 @@ for(const user of cardShow){
   cardDiv.innerHTML=`
    <div class="border border-dark d-flex m-5 ">
     <div class="col-md-4">
+    
     <img src="${user.image_url}" class="img-fluid rounded-start h-100" alt="...">
  </div>
  <div class="col-md-8">
@@ -109,8 +110,8 @@ for(const user of cardShow){
      <i class="fa-solid fa-eye ms-5 mt-5"></i>
      <h6 class="mt-5" >${user.total_view? user.total_view:'No data found'}</h6>
      <button type="button"  onclick="loadModal('${user._id}')"  href="#" class="btn btn-primary h-25 w-25 mx-5 mt-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Details
-</button>
+    Details
+  </button>
 
 </div>
 
@@ -149,6 +150,8 @@ const loadModal=(news_id)=>{
 
 const url=` https://openapi.programming-hero.com/api/news/${news_id}`
 
+//const url=` https://openapi.programming-hero.com/api/news/category/${category_id}`
+
 fetch(url)
 .then(res=> res.json())
 
@@ -164,21 +167,24 @@ const displayModal=(modal)=>{
 console.log(modal)
 
 const modalContainer=document.getElementById('staticBackdrop')
+
+
 modalContainer.innerHTML=`
 
 
-<div class="modal-dialog">
+<div class="modal-dialog  ">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel"></h5>
+          <p class="modal-title" id="staticBackdropLabel">${modal[0]}</p>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
+          <h5>Jimmiy Dane</h5>
+          <h6>Total view:488</h6>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
+          
         </div>
       </div>
     </div>
