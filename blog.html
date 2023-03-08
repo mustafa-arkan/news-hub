@@ -1,39 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blogs</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-</head>
-<body class="container">
-<header><h2>Question Answer of some common question</h2></header>
-<main>
-<h4>Q.1.Var vs Let vs Const in Javascript</h4>
-<p>The differences between var, let, and const variable declaration in JavaScript include:
-    Variables declared with var and const are scoped to the immediate function body.
-    Variables declared with the var keyword are hoisted. Hoisting means that the variable can be accessed in their enclosing scope even before they are declared.
-    Variables declared with the let keyword are block-scoped, which means the variables will have scope to the immediate enclosing block.</p>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Stylesheet -->
+
+    <link rel="stylesheet" href="styles/style.css" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <title>News Hub</title>
+  </head>
+  <body class="bg-light">
+
+    <header class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light mt-2">
+        <div class="container-fluid d-lg-flex justify-content-between">
+          <a class="navbar-brand fw-bolder align-self-center  border-4 border-end border-danger rounded-pill pe-2" href="#"
+            ><span
+              class="bg-danger px-3 py-1 rounded-pill fw-bolder text text-white"
+              >News</span
+            >
+            Hub</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse d-lg-flex justify-content-end align-content-end"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav flex align-content-center">
+              <li class="nav-item align-self-lg-center">
+                <a
+                  class="nav-link"
+                  aria-current="page"
+                  href="index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item align-self-lg-center">
+                <a class="nav-link active text-danger fw-bolder border-bottom border-danger rounded " href="blog.html">Blog</a>
+              </li>
+              <li class="nav-item text-center d-none d-lg-block">
+                <a class="nav-link" href="#">
+                  <img
+                    class="w-50 h-50 rounded-circle"
+                    src="images/ark.jpeg"
+                    alt=""
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    </header>
 
 
-<h4>Q.2.Arrow vs Regular function in JS</h4>
-<p>
-    1.The first and most obvious difference between arrow functions and regular functions is their syntax. Not only do they look different, but arrow functions also provide an implicit return shorthand and allow parenthesis around a single argument to be omitted.</p>
-</p></br><p>
+    </main>
 
-    2.Regular functions can be used as constructors, using the new keyword. Yet another consequence of the lexical resolution of this inside arrow functions is that they cannot be used as constructors. Using new with an arrow function results in a TypeError.
-</p>
-
-<h4>Q.3.Why we use template string in Js?</h4>
-
-<p>Template literals are literals delimited with backtick (`) characters, allowing for multi-line strings, for string interpolation with embedded expressions, and for special constructs called tagged templates.</p>
-</br>
-<p>Example of template string: `string text`</p>
+    <section class="container">
+        <h2 class="text-danger fw-bolder text-center border border-danger p-3 my-4 rounded-pill
+        ">OUR BLOGS</h2>
+    </section>
 
 
-</main>
+    <section class="container">
 
-    
-</body>
+        <div class="row p-2 shadow-lg rounded justify-content-between my-3">
+            <h3 class="text-center mb-4">1. Difference between var, let and const</h3>
+            <div class="col-12 col-lg-6 p-4">
+
+                <p><b>let:</b> The let keyword declares a block-scoped local variable, optionally initializing it to a value.
+                Block-scoped means that the variable is only available within the block it was declared in, which is usually denoted by curly braces {}.</p>
+
+                <p>
+                <b>var:</b> The var keyword declares a function-scoped or global variable, optionally initializing it to a value.
+                Function-scoped means that the variable is only available within the function it was declared in. Global variables are available throughout your entire code.
+                </p>
+
+                <p><b>const:</b> The const keyword declares a block-scoped, immutable constant variable, i.e. a variable that can’t be reassigned.
+                Constants are also called “immutable variables”, but that’s a bit of a misnomer since they are actually variables – just ones that can’t be reassigned.</p>
+
+                </p>
+            </div>
+                <div class="col-12 col-lg-6 align-self-center text-center">
+                    <img class=" w-100 img-fluid rounded mb-4 " src="images/var-let-const.png" alt="">
+                </div>
+        </div>
+
+        <div class="row p-2 shadow-lg rounded justify-content-between my-5">
+            <h3 class="text-center mb-4">2. Difference between Arrow Function & Regular Function</h3>
+
+            <div class="col-12 col-lg-6 align-self-center text-center">
+                <img class=" w-100 img-fluid rounded mb-4 " src="images/arrow-regular.jpeg" alt="">
+            </div>
+            <div class="col-12 col-lg-6 p-4">
+
+                <p><b>Syntax:</b> One very basic difference is that the Regular Functions uses function keyword but Arrow Functions don’t inspite it uses arrow symbol(=>).</p>
+
+                <p>
+                <b>this keyword:</b> Regular function have its their own this context, but the Arrow function don’t have their own. Inside an Arrow function this value hold the this value of outer function.
+                </p>
+
+                <p><b>Using new keyword:</b> Regular function are constructible and callable.As it are constructible, they can be called using the ‘new’ keyword. But the arrow functions are only callable and not constructible. Due to which we will get a run-time error when trying to construct a non-constructible arrow functions using the new keyword.</p>
+
+                </p>
+            </div>
+
+        </div>
+
+
+
+
+
+                <div class="row p-2 shadow-lg rounded justify-content-between my-3">
+            <h3 class="text-center mb-4">3. Difference between map(), forEach(), filter() and find()</h3>
+            <div class="col-12 col-lg-6 p-4">
+
+                <p><b>map():</b> executes the same code on every element in an array and returns a new array with the updated elements.</p>
+
+                <p>
+                <b>forEach():</b> is used to execute the same code on every element in an array but does not change the array and it returns undefined.
+                </p>
+
+                <p><b>filter():</b> checks every element in an array to see if it meets a certain criteria and returns a new array with the elements that return truthy for the criteria.</p>
+
+                <p><b>find()):</b> returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned.</p>
+
+                </p>
+            </div>
+                <div class="col-12 col-lg-6 align-self-center text-center">
+                    <img class=" w-100 img-fluid rounded mb-4 " src="images/array-methods.webp" alt="">
+                </div>
+        </div>
+
+
+
+        <div class="row p-2 shadow-lg rounded justify-content-between my-5">
+            <h3 class="text-center mb-4">4. Why do we use template string in Javascript?</h3>
+
+            <div class="col-12 col-lg-6 align-self-center text-center">
+                <img class=" w-100 img-fluid rounded mb-4 " src="images/template-string.webp" alt="">
+            </div>
+            <div class="col-12 col-lg-6 p-4">
+
+                <p> Template literals (template strings) allow you to use strings or embedded expressions in the form of a string. They are enclosed in backticks (``)</p>
+
+                <p>
+                <b>Template Literals for Strings:</b> Instead of using escape characters, you can use template literals.
+                </p>
+
+                <p><b>Multiline Strings Using Template Literals:</b> Template literals also make it easy to write multiline strings.</p>
+                </p>
+
+                <p><b>Expression Interpolation:</b> Before JavaScript ES6, you would use the + operator to concatenate variables and expressions in a string.</p>
+                </p>
+
+
+                <p><b>Tagged Templates:</b> Normally, you would use a function to pass arguments.However, you can create tagged templates (that behave like a function) using template literals. You use tags that allow you to parse template literals with a function.</p>
+                </p>
+            </div>
+
+        </div>
+
+
+
+
+
+    </section>
+
+    <footer class="bg-danger rounded-top container-fluid">
+      <p class="text-center text-white fw-bold p-4">
+        Copyright 2022 News Hub
+      </p>
+    </footer>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Font awesome  -->
+    <script
+      src="https://kit.fontawesome.com/b733db707b.js"
+      crossorigin="anonymous"
+    ></script>
+
+  </body>
 </html>
